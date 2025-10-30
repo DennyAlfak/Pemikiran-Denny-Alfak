@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Denny Alfak | Portofolio & Pemikiran</title>
+    <meta
+      name="description"
+      content="Portofolio interaktif gelap, elegan, dan misterius milik Denny Alfak — blog, portofolio, ruang tugas yang dapat diedit langsung di web."
+    />
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- particle background -->
+    <canvas id="bg"></canvas>
+
+    <div class="wrap">
+      <header class="site">
+        <div class="logo" title="Denny">
+          
+          <svg
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#5b21b6" />
+                <stop offset="1" stop-color="#06b6d4" />
+              </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <rect
+              x="4"
+              y="4"
+              width="40"
+              height="40"
+              rx="8"
+              fill="url(#g1)"
+              filter="url(#glow)"
+            ></rect>
+            <path
+              d="M15 34 L24 14 L35 34"
+              stroke="#00000010"
+              stroke-width="2.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.15"
+            />
+            <path
+              d="M16 33 L24 16 L34 33"
+              stroke="white"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.95"
+            />
+          </svg>
+        </div>
+
+        <div class="hmeta">
+          <h1 class="name">Denny Alfak</h1>
+          <p class="tag muted">
+            Welcome to the world of Denny , a journey through code, thought, and
+            creation.
+          </p>
+        </div>
+
+        <div class="actions">
+          <button id="btnTheme" class="btn small" title="Toggle theme">
+            🌙
+          </button>
+          <button id="openProfileEdit" class="btn ghost small">Edit Bio</button>
+        </div>
+      </header>
+
+      <nav class="main">
+        <a href="#about" class="active">Tentang</a>
+        <a href="#portfolio">Portofolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#tasks">Tugas</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+
+      <main class="grid">
+        <div>
+          <section id="about" class="card">
+            <h2>Tentang Saya</h2>
+            <p id="aboutText">
+              <section id="about" class="fade-in">
+  <p
+    Aku <strong>Denny Alfak</strong>, lahir dari perjalanan hidup yang tak biasa.  
+    Dari lorong-lorong kecil Aceh Tenggara hingga layar digital masa kini,  
+    aku belajar bahwa kegelapan bukan akhir, tapi ruang tempat cahaya menemukan bentuknya.
+  </p>
+  <p>
+    Aku mencintai <em>teknologi</em>, <em>sejarah kelam</em>, dan <em>pemikiran mendalam</em>.  
+    Bagiku, menulis dan mencipta bukan sekadar hobi tapi cara untuk memahami dunia yang terlalu kompleks untuk dijelaskan dengan kata sederhana.  
+  </p>
+  <p>
+    Portofolio ini bukan sekadar pamer karya.  
+    Ini adalah <strong>jejak pikiranku</strong>, <strong>suara perjalananku</strong>, dan <strong>cermin dari perjuangan</strong> yang menolak tenggelam.  
+    Di sini, setiap baris kode, tulisan, dan ide menyala dalam kegelapan.
+  </p>
+  <p class="quote">
+    “Di antara cahaya dan bayangan, aku memilih menjadi kilatan singkat, tapi berarti.”  
+    <span>~ Denny Alfak</span>
+  </p>
+</section>
+.
+            </p>
+          </section>
+
+          <section id="portfolio" class="card">
+            <div class="section-head">
+              <h2>Portofolio</h2>
+              <div class="right">
+                <button id="addProject" class="btn small">➕ Tambah</button>
+                <button id="exportProjects" class="btn ghost small">
+                  ⬇ Export
+                </button>
+              </div>
+            </div>
+            <div id="projects" class="projects"></div>
+          </section>
+
+          <section id="blog" class="card">
+            <div class="section-head">
+              <h2>Blog</h2>
+              <div class="right">
+                <button id="addPost" class="btn small">✍ Tulis</button>
+                <button id="exportPosts" class="btn ghost small">
+                  ⬇ Export
+                </button>
+              </div>
+            </div>
+            <div id="posts"></div>
+          </section>
+        </div>
+
+        <aside>
+          <section id="tasks" class="card">
+            <h2>Ruang Tugas</h2>
+            <input id="taskTitle" placeholder="Judul tugas" />
+            <textarea
+              id="taskBody"
+              placeholder="Isi tugas... (tersimpan otomatis)"
+            ></textarea>
+            <div style="display: flex; gap: 8px; margin-top: 8px">
+              <button id="saveTask" class="btn small">Simpan</button>
+              <button id="clearAll" class="btn ghost small">Hapus Semua</button>
+            </div>
+            <div id="taskList" style="margin-top: 12px" class="task-list"></div>
+          </section>
+
+          <section id="contact" class="card">
+            <h3>Kontak</h3>
+            <p class="muted">Email: denialfak14@gmail.com</p>
+            <p class="muted">Aceh Tenggara, Indonesia</p>
+          </section>
+        </aside>
+      </main>
+
+      <footer>
+        <small class="muted"
+          >© 2025 Denny Alfak dibuat dengan semangat, gelap, dan harapan.</small
+        >
+      </footer>
+    </div>
+
+    <!-- modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-card fade">
+        <button id="modalClose" class="modal-close" aria-label="Close">
+          ✕
+        </button>
+        <div id="modalInner"></div>
+      </div>
+    </div>
+
+    
+    <audio
+      id="clickSnd"
+      preload="auto"
+      src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a2549b3b1.mp3"
+    ></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
